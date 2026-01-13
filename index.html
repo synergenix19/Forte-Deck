@@ -526,6 +526,135 @@
         .ip-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.05)); border: 1px solid var(--accent-amber); padding: 6px 14px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; color: var(--accent-amber); margin-top: 15px; }
         .ip-badge::before { content: '★'; }
 
+        /* Forte-Recover Flow Diagram */
+        .recover-flow {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .recover-step {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .recover-step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 12px;
+        }
+
+        .recover-step-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .recover-step-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .recover-step-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .recover-step-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .recover-tag {
+            font-size: 0.6rem;
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .recover-step-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .recover-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--brand-blue);
+            font-weight: 700;
+        }
+
+        .recover-differentiator {
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .differentiator-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .diff-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+
+        .diff-value {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            padding: 8px 14px;
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .diff-weak {
+            background: rgba(239, 68, 68, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .diff-strong {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.05));
+            color: var(--text-dark);
+            border: 1px solid var(--brand-blue);
+            font-weight: 500;
+        }
+
         /* Nav Hint */
         .nav-hint { position: fixed; bottom: 20px; right: 20px; font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; z-index: 100; }
         .key { background: var(--bg-white); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px; font-family: 'Space Mono', monospace; }
@@ -596,6 +725,11 @@
             .mvp-phase { max-width: 100%; width: 100%; }
             .arch-layer { flex-direction: column; align-items: flex-start; gap: 10px; }
             .arch-layer-title { min-width: auto; }
+            .recover-flow { flex-direction: column; align-items: center; }
+            .recover-step { max-width: 100%; width: 100%; }
+            .recover-arrow { transform: rotate(90deg); margin: 10px 0; }
+            .differentiator-row { flex-direction: column; gap: 8px; }
+            .diff-label { min-width: auto; }
             .takeaway-box { padding: 20px 25px; }
             .takeaway-text { font-size: 1rem; }
             .title-main { font-size: 2.2rem; }
@@ -669,12 +803,13 @@
             <div class="nav-chapter" onclick="goToSlide(9); closeMobileMenu();"><span class="nav-chapter-num">07</span>Saudi Arabia</div>
             <div class="nav-chapter" onclick="goToSlide(10); closeMobileMenu();"><span class="nav-chapter-num">08</span>Bahrain</div>
             <div class="nav-chapter" onclick="goToSlide(11); closeMobileMenu();"><span class="nav-chapter-num">09</span>MVP</div>
-            <div class="nav-chapter" onclick="goToSlide(13); closeMobileMenu();"><span class="nav-chapter-num">10</span>Architecture</div>
-            <div class="nav-chapter" onclick="goToSlide(14); closeMobileMenu();"><span class="nav-chapter-num">11</span>Competition</div>
-            <div class="nav-chapter" onclick="goToSlide(16); closeMobileMenu();"><span class="nav-chapter-num">12</span>How We Win</div>
-            <div class="nav-chapter" onclick="goToSlide(17); closeMobileMenu();"><span class="nav-chapter-num">13</span>Business Model</div>
-            <div class="nav-chapter" onclick="goToSlide(20); closeMobileMenu();"><span class="nav-chapter-num">14</span>Team</div>
-            <div class="nav-chapter" onclick="goToSlide(21); closeMobileMenu();"><span class="nav-chapter-num">15</span>The Ask</div>
+            <div class="nav-chapter" onclick="goToSlide(13); closeMobileMenu();"><span class="nav-chapter-num">10</span>Forte-Recover</div>
+            <div class="nav-chapter" onclick="goToSlide(14); closeMobileMenu();"><span class="nav-chapter-num">11</span>Architecture</div>
+            <div class="nav-chapter" onclick="goToSlide(15); closeMobileMenu();"><span class="nav-chapter-num">12</span>Competition</div>
+            <div class="nav-chapter" onclick="goToSlide(17); closeMobileMenu();"><span class="nav-chapter-num">13</span>How We Win</div>
+            <div class="nav-chapter" onclick="goToSlide(18); closeMobileMenu();"><span class="nav-chapter-num">14</span>Business Model</div>
+            <div class="nav-chapter" onclick="goToSlide(21); closeMobileMenu();"><span class="nav-chapter-num">15</span>Team</div>
+            <div class="nav-chapter" onclick="goToSlide(22); closeMobileMenu();"><span class="nav-chapter-num">16</span>The Ask</div>
         </nav>
 
         <div class="slide-counter"><span id="currentSlide">1</span>/<span id="totalSlides">22</span></div>
@@ -759,10 +894,10 @@
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">The <span class="highlight">ForteIQ</span> Suite</h1>
                     <div class="product-grid animate-in delay-2">
-                        <div class="product-card"><div class="product-icon access">✓</div><div class="product-name" style="color: var(--accent-green);">Forte-Access</div><div class="product-desc">Real-time eligibility. Smart Benefits View.</div></div>
-                        <div class="product-card"><div class="product-icon code">⟨⟩</div><div class="product-name" style="color: var(--brand-blue);">Forte-Code</div><div class="product-desc">AI-powered medical coding. SBS & ICD-10.</div></div>
-                        <div class="product-card"><div class="product-icon submit">🚀</div><div class="product-name" style="color: var(--accent-purple);">Forte-Submit</div><div class="product-desc">NPHIES (KSA) & eClaimLink (UAE) Gateway. Technical scrubbing.</div></div>
-                        <div class="product-card"><div class="product-icon recover">↻</div><div class="product-name" style="color: var(--accent-amber);">Forte-Recover</div><div class="product-desc">Autonomous denial management.</div></div>
+                        <div class="product-card"><div class="product-icon access">✓</div><div class="product-name" style="color: var(--accent-green);">Forte-Access</div><div class="product-desc">Real-time eligibility via eClaimLink APIs. Smart Benefits View calculates precise patient liability.</div></div>
+                        <div class="product-card"><div class="product-icon code">⟨⟩</div><div class="product-name" style="color: var(--brand-blue);">Forte-Code</div><div class="product-desc">AI-powered coding with SBS & ICD-10. Flags under/over-coding against DHA guidelines.</div></div>
+                        <div class="product-card"><div class="product-icon submit">🚀</div><div class="product-name" style="color: var(--accent-purple);">Forte-Submit</div><div class="product-desc">NPHIES/eClaimLink Gateway. HL7 FHIR scrubbing ensures first-pass survival.</div></div>
+                        <div class="product-card"><div class="product-icon recover">↻</div><div class="product-name" style="color: var(--accent-amber);">Forte-Recover</div><div class="product-desc">Ingests XML/FHIR remittances. Maps denials to DHA/CHI rules. Generates legally-cited appeals.</div></div>
                     </div>
                 </div>
             </div>
@@ -842,15 +977,71 @@
             <div class="slide" data-slide="12">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">MVP <span class="highlight">Core Modules</span></h1>
-                    <div class="stats-grid animate-in delay-2" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 30px auto 0;">
-                        <div class="stat-card" style="text-align: left;"><div class="stat-value" style="font-size: 1.4rem;">Forte-Access Lite</div><div class="feature-list" style="margin-top: 10px;"><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px;">✓</div><span>Real-time DHA APIs</span></div><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px;">✓</div><span>Smart Benefits View</span></div></div></div>
-                        <div class="stat-card" style="text-align: left;"><div class="stat-value" style="font-size: 1.4rem; color: var(--accent-amber);">Forte-Recover Lite</div><div class="feature-list" style="margin-top: 10px;"><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px; background: rgba(245, 158, 11, 0.1);">↻</div><span>835 Analysis</span></div><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px; background: rgba(245, 158, 11, 0.1);">↻</div><span>AI Drafter Agent</span></div></div></div>
+                    <div class="stats-grid animate-in delay-2" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; margin: 30px auto 0;">
+                        <div class="stat-card" style="text-align: left;"><div class="stat-value" style="font-size: 1.4rem;">Forte-Access Lite</div><div class="feature-list" style="margin-top: 10px;"><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px;">✓</div><span>Real-time DHA/eClaimLink APIs</span></div><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px;">✓</div><span>Smart Benefits View</span></div><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px;">✓</div><span>Patient liability calculation</span></div></div></div>
+                        <div class="stat-card" style="text-align: left;"><div class="stat-value" style="font-size: 1.4rem; color: var(--accent-amber);">Forte-Recover Lite</div><div class="feature-list" style="margin-top: 10px;"><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px; background: rgba(245, 158, 11, 0.1);">📥</div><span>Unified Remittance Ingestion</span></div><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px; background: rgba(245, 158, 11, 0.1);">🧠</div><span>Context-Aware Denial Mapping</span></div><div class="feature-item" style="font-size: 0.85rem;"><div class="feature-icon" style="width: 28px; height: 28px; background: rgba(245, 158, 11, 0.1);">✍️</div><span>Evidence-Based Appeal Gen</span></div></div></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 13: Architecture -->
+            <!-- Slide 12b: Forte-Recover Deep Dive -->
             <div class="slide" data-slide="13">
+                <div class="slide-content">
+                    <h1 class="slide-title animate-in delay-1">How <span class="highlight-amber">Forte-Recover</span> Works</h1>
+                    <p class="slide-subtitle animate-in delay-2">Deep Integration with GCC Healthcare Backbone</p>
+                    <div class="recover-flow animate-in delay-3">
+                        <div class="recover-step">
+                            <div class="recover-step-icon" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.1));">📥</div>
+                            <div class="recover-step-num">STEP 1</div>
+                            <div class="recover-step-title" style="color: var(--brand-blue);">Remittance Gateway</div>
+                            <div class="recover-step-subtitle">Universal Ingestion</div>
+                            <div class="recover-step-tags">
+                                <span class="recover-tag">eClaimLink XML</span>
+                                <span class="recover-tag">NPHIES FHIR</span>
+                                <span class="recover-tag">EDI 835</span>
+                            </div>
+                            <div class="recover-step-desc">Auto-fetches from DHPO API & subscribes to NPHIES PaymentReconciliation events</div>
+                        </div>
+                        <div class="recover-arrow">→</div>
+                        <div class="recover-step">
+                            <div class="recover-step-icon" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.1));">🧠</div>
+                            <div class="recover-step-num">STEP 2</div>
+                            <div class="recover-step-title" style="color: var(--accent-purple);">Root Cause Engine</div>
+                            <div class="recover-step-subtitle">Context-Aware Mapping</div>
+                            <div class="recover-step-tags">
+                                <span class="recover-tag">DHA Code Sets</span>
+                                <span class="recover-tag">CHI Policy Rules</span>
+                            </div>
+                            <div class="recover-step-desc">Detects "False Denials" where payers violate prompt payment laws</div>
+                        </div>
+                        <div class="recover-arrow">→</div>
+                        <div class="recover-step">
+                            <div class="recover-step-icon" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(234, 88, 12, 0.1));">✍️</div>
+                            <div class="recover-step-num">STEP 3</div>
+                            <div class="recover-step-title" style="color: var(--accent-amber);">Forte-Recover Agent</div>
+                            <div class="recover-step-subtitle">Evidence-Based Appeals</div>
+                            <div class="recover-step-tags">
+                                <span class="recover-tag">Regulatory Citations</span>
+                                <span class="recover-tag">EMR Evidence</span>
+                            </div>
+                            <div class="recover-step-desc">Cites specific DHA/CHI regulation articles — appeals paid 3x faster</div>
+                        </div>
+                    </div>
+                    <div class="recover-differentiator animate-in delay-4">
+                        <div class="differentiator-row">
+                            <div class="diff-label">Generic RCM:</div>
+                            <div class="diff-value diff-weak">"We analyze 835 files"</div>
+                        </div>
+                        <div class="differentiator-row">
+                            <div class="diff-label">ForteIQ:</div>
+                            <div class="diff-value diff-strong">"We ingest eClaimLink XML & NPHIES FHIR streams, validate against DHA/CHI Regulatory Rulebooks, and generate legally-cited appeals with clinical proof"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Architecture -->
+            <div class="slide" data-slide="14">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1"><span class="highlight-green">Sovereign</span> Architecture</h1>
                     <p class="slide-subtitle animate-in delay-2">Your Data Never Leaves the Kingdom</p>
@@ -863,8 +1054,8 @@
                 </div>
             </div>
 
-            <!-- Slide 14: Competition -->
-            <div class="slide" data-slide="14">
+            <!-- Slide 15: Competition -->
+            <div class="slide" data-slide="15">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">Competitive <span class="highlight">Landscape</span></h1>
                     <div class="compare-grid animate-in delay-2" style="max-width: 1000px;">
@@ -876,8 +1067,8 @@
                 </div>
             </div>
 
-            <!-- Slide 15: Advantage -->
-            <div class="slide" data-slide="15">
+            <!-- Slide 16: Advantage -->
+            <div class="slide" data-slide="16">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">The <span class="highlight">ForteIQ</span> Advantage</h1>
                     <div class="stats-grid four-col animate-in delay-2" style="max-width: 1100px; margin: 30px auto 0;">
@@ -889,8 +1080,8 @@
                 </div>
             </div>
 
-            <!-- Slide 16: How We Win -->
-            <div class="slide" data-slide="16">
+            <!-- Slide 17: How We Win -->
+            <div class="slide" data-slide="17">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1"><span class="highlight">How We Win</span></h1>
                     <p class="slide-subtitle animate-in delay-2">Market Disruption Strategy</p>
@@ -904,8 +1095,8 @@
                 </div>
             </div>
 
-            <!-- Slide 17: Business Model -->
-            <div class="slide" data-slide="17">
+            <!-- Slide 18: Business Model -->
+            <div class="slide" data-slide="18">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">Hybrid <span class="highlight">Revenue Model</span></h1>
                     <div class="pricing-grid animate-in delay-2">
@@ -915,8 +1106,8 @@
                 </div>
             </div>
 
-            <!-- Slide 18: Revenue -->
-            <div class="slide" data-slide="18">
+            <!-- Slide 19: Revenue -->
+            <div class="slide" data-slide="19">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">Revenue <span class="highlight">Projections</span></h1>
                     <div class="revenue-breakdown animate-in delay-2">
@@ -928,8 +1119,8 @@
                 </div>
             </div>
 
-            <!-- Slide 19: ROI -->
-            <div class="slide" data-slide="19">
+            <!-- Slide 20: ROI -->
+            <div class="slide" data-slide="20">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">Customer <span class="highlight-green">ROI</span></h1>
                     <div class="roi-grid animate-in delay-2">
@@ -940,8 +1131,8 @@
                 </div>
             </div>
 
-            <!-- Slide 20: Team -->
-            <div class="slide" data-slide="20">
+            <!-- Slide 21: Team -->
+            <div class="slide" data-slide="21">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">The <span class="highlight">Team</span></h1>
                     <div class="team-grid animate-in delay-2">
@@ -950,12 +1141,12 @@
                         <div class="team-card"><div class="team-avatar">👤</div><div class="team-name">Aurelie</div><div class="team-role">CTO</div></div>
                         <div class="team-card hiring"><div class="team-avatar">+</div><div class="team-name">Head of RCM</div><div class="team-role">Hiring Active</div></div>
                     </div>
-                    <div class="partners-section animate-in delay-3"><div class="partners-title">Partners</div><div class="partners-grid"><div class="partner-card"><div class="partner-name">ZeniaGraph</div><div class="partner-type">AI Infrastructure</div></div><div class="partner-card"><div class="partner-name">Metacube</div><div class="partner-type">Development</div></div><div class="partner-card"><div class="partner-name">Forte Healthcare</div><div class="partner-type">Domain Expertise</div></div></div></div>
+                    <div class="partners-section animate-in delay-3"><div class="partners-title">Partners</div><div class="partners-grid"><div class="partner-card"><div class="partner-name">ZeniaGraph</div><div class="partner-type">AI Infrastructure</div></div><div class="partner-card"><div class="partner-name">Metacube</div><div class="partner-type">Development</div></div><div class="partner-card"><div class="partner-name">Forte Healthcare</div><div class="partner-type">GCC Regulatory Advisors</div></div></div></div>
                 </div>
             </div>
 
-            <!-- Slide 21: The Ask -->
-            <div class="slide" data-slide="21">
+            <!-- Slide 22: The Ask -->
+            <div class="slide" data-slide="22">
                 <div class="slide-content">
                     <h1 class="slide-title animate-in delay-1">The <span class="highlight">Opportunity</span></h1>
                     <div class="final-grid animate-in delay-2">
@@ -982,7 +1173,7 @@
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
         const navChapters = document.querySelectorAll('.nav-chapter');
-        const chapterStarts = [0, 1, 2, 4, 6, 7, 8, 9, 10, 11, 13, 14, 16, 17, 20, 21];
+        const chapterStarts = [0, 1, 2, 4, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18, 21, 22];
 
         function updateSlideCounter() {
             document.getElementById('currentSlide').textContent = currentSlide + 1;
