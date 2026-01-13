@@ -42,9 +42,11 @@
             background: var(--bg-white);
             color: var(--text-dark);
             overflow: hidden;
+            overflow-x: hidden;
             height: 100vh;
             height: 100dvh;
             width: 100vw;
+            max-width: 100vw;
         }
 
         .presentation-container {
@@ -52,6 +54,8 @@
             height: 100vh;
             height: 100dvh;
             width: 100vw;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         /* Mobile Menu Toggle */
@@ -212,7 +216,9 @@
             flex: 1;
             position: relative;
             overflow: hidden;
+            overflow-x: hidden;
             background: var(--bg-light);
+            max-width: 100vw;
         }
 
         .slide {
@@ -1879,6 +1885,32 @@
                 flex-direction: column;
                 gap: 25px;
             }
+
+            /* Font scaling for tablets */
+            .slide-title {
+                font-size: 2.2rem;
+            }
+
+            .big-number {
+                font-size: 5rem;
+            }
+
+            .slide[data-slide="2"] .animate-in.delay-2 {
+                font-size: 6rem;
+            }
+
+            /* Grid adjustments for tablets */
+            .region-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .revenue-breakdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         /* Mobile Landscape */
@@ -2053,6 +2085,135 @@
             .nav-hint {
                 display: none;
             }
+
+            /* Region Grid - Stack on mobile */
+            .region-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            /* Cycle Container - Vertical layout */
+            .cycle-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cycle-card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .cycle-arrow {
+                transform: rotate(90deg);
+                margin: 15px 0;
+            }
+
+            .feedback-loop {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border: none;
+                border-left: 2px dashed var(--accent-green);
+                border-radius: 0;
+                padding-left: 20px;
+                margin-top: 20px;
+            }
+
+            .feedback-badge {
+                transform: none;
+                margin-top: 10px;
+            }
+
+            /* Competition Table - Horizontal scroll */
+            .comp-table-container {
+                margin-left: -25px;
+                margin-right: -25px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .comp-table {
+                min-width: 600px;
+                font-size: 0.85rem;
+            }
+
+            .comp-table th,
+            .comp-table td {
+                padding: 12px 8px;
+                font-size: 0.75rem;
+            }
+
+            /* Timeline Table - Mobile card layout */
+            .timeline-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .timeline-table thead {
+                display: none;
+            }
+
+            .timeline-table tbody {
+                display: block;
+            }
+
+            .timeline-table tr {
+                display: block;
+                margin-bottom: 20px;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 15px;
+                background: var(--bg-white);
+            }
+
+            .timeline-table td {
+                display: block;
+                text-align: left;
+                padding: 8px 0;
+                border: none;
+            }
+
+            .timeline-table td:before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--text-dark);
+                display: block;
+                margin-bottom: 5px;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            /* Sources Citation - Relative positioning */
+            .slide[data-slide="16"] .animate-in.delay-4+div {
+                position: relative !important;
+                bottom: auto !important;
+                right: auto !important;
+                text-align: center !important;
+                margin-top: 20px;
+                opacity: 0.7;
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            /* Safe area insets for iOS */
+            .slide {
+                padding-left: max(25px, env(safe-area-inset-left));
+                padding-right: max(25px, env(safe-area-inset-right));
+                padding-bottom: max(25px, env(safe-area-inset-bottom));
+            }
+
+            .menu-toggle {
+                top: max(15px, env(safe-area-inset-top));
+                left: max(15px, env(safe-area-inset-left));
+            }
+
+            .slide-counter {
+                top: max(15px, env(safe-area-inset-top));
+                right: max(15px, env(safe-area-inset-right));
+            }
         }
 
         /* Mobile Portrait */
@@ -2154,6 +2315,88 @@
                 font-size: 0.75rem;
                 padding: 4px 10px;
             }
+
+            /* Slide 2 - Large font sizes */
+            .slide[data-slide="2"] .animate-in.delay-2 {
+                font-size: 4rem !important;
+            }
+
+            .slide[data-slide="2"] h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .slide[data-slide="2"] p {
+                font-size: 1rem !important;
+            }
+
+            /* Slide 1 - Stat cards */
+            .slide[data-slide="1"] .stat-card {
+                padding: 20px 15px;
+            }
+
+            .slide[data-slide="1"] .stat-card>div:first-child {
+                font-size: 2rem;
+            }
+
+            .slide[data-slide="1"] .stat-value {
+                font-size: 1.2rem;
+            }
+
+            /* Slide 14 - SAM Logic Box */
+            .slide[data-slide="14"] .animate-in.delay-3>div {
+                max-width: 100% !important;
+                padding: 12px 15px !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .slide[data-slide="14"] .animate-in.delay-3>div>div {
+                flex-direction: column !important;
+                gap: 10px !important;
+                font-size: 0.7rem !important;
+            }
+
+            .slide[data-slide="14"] .animate-in.delay-3>div>div>div {
+                width: 1px !important;
+                height: 20px !important;
+                background: #cbd5e1 !important;
+            }
+
+            /* Slide 12 - Pricing cards */
+            .pricing-card {
+                padding: 20px 15px;
+            }
+
+            /* Slide 14 - Revenue cards */
+            .revenue-card {
+                padding: 20px 15px;
+            }
+
+            /* Legal Footer */
+            .legal-footer {
+                font-size: 0.45rem;
+                bottom: 5px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+                line-height: 1.3;
+            }
+
+            /* Safe area insets for iOS */
+            .slide {
+                padding-left: max(18px, env(safe-area-inset-left));
+                padding-right: max(18px, env(safe-area-inset-right));
+                padding-bottom: max(20px, env(safe-area-inset-bottom));
+            }
+
+            .menu-toggle {
+                top: max(12px, env(safe-area-inset-top));
+                left: max(12px, env(safe-area-inset-left));
+            }
+
+            .slide-counter {
+                top: max(12px, env(safe-area-inset-top));
+                right: max(12px, env(safe-area-inset-right));
+            }
         }
 
         /* Extra Small */
@@ -2190,8 +2433,40 @@
                 transform: none;
             }
 
+            /* Touch targets */
+            .nav-chapter {
+                min-height: 44px;
+                padding: 12px 14px;
+            }
+
+            .menu-toggle {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .stat-card,
+            .product-card,
+            .team-card {
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
+            }
+
             .nav-chapter {
                 padding: 14px 14px;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+
+            * {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
             }
         }
     </style>
