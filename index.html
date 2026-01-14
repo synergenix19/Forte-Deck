@@ -3812,102 +3812,92 @@
                     </h1>
                     <p class="slide-subtitle animate-in delay-2">Self-Correcting Revenue Cycle Ecosystem</p>
 
-                    <div class="cycle-grid-container animate-in delay-3"
-                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 30px auto; position: relative;">
+                    <div class="cycle-container animate-in delay-3" style="margin-top: 40px; position: relative;">
 
                         <div class="cycle-card"
-                            style="border-top: 4px solid var(--accent-green); height: 100%; min-height: 220px; order: 1;">
-                            <div class="cycle-step">01. INGEST & STRUCTURE</div>
-                            <div class="cycle-title">Unstructured to Golden Record</div>
-                            <div class="cycle-desc">Ingests messy PDFs, handwritten notes & EMR data. Normalizes it into
-                                a standard FHIR object.</div>
+                            style="border-top: 4px solid var(--accent-green); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div class="cycle-step">01. INGEST & STRUCTURE</div>
+                                <div class="cycle-title">Unstructured to Golden Record</div>
+                                <div class="cycle-desc">Ingests messy PDFs, handwritten notes & EMR data. Normalizes
+                                    it into a standard FHIR object for processing.</div>
+                            </div>
                             <div
-                                style="margin-top: 15px; font-size: 0.7rem; color: var(--accent-green); background: rgba(16,185,129,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                style="font-size: 0.7rem; color: var(--accent-green); background: rgba(16,185,129,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
                                 <strong>Solves:</strong> Data Fragmentation
                             </div>
                         </div>
 
-                        <div
-                            style="position: absolute; top: 22%; left: 50%; transform: translate(-50%, -50%); color: var(--brand-light-blue); font-size: 1.5rem; z-index: 10;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
+                        <div class="cycle-arrow">→</div>
 
                         <div class="cycle-card"
-                            style="border-top: 4px solid var(--brand-blue); height: 100%; min-height: 220px; order: 2;">
-                            <div class="cycle-step">02. COMPLY & VALIDATE</div>
-                            <div class="cycle-title">Sovereign Rules Engine</div>
-                            <div class="cycle-desc">
-                                1. <strong>Coding:</strong> Maps to ICD-10-AM/ACHI/CPT.<br>
-                                2. <strong>Rules:</strong> Validates against 10k+ Payer Policies.
+                            style="border-top: 4px solid var(--brand-blue); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div class="cycle-step">02. COMPLY & VALIDATE</div>
+                                <div class="cycle-title">Sovereign Rules Engine</div>
+                                <div class="cycle-desc" style="font-size: 0.75rem; line-height: 1.4;">
+                                    <strong>1. Coding:</strong> Maps clinical intent to regional standards
+                                    (ICD-10-AM/ACHI/CPT).<br>
+                                    <strong>2. Rules:</strong> Validates against payer policies (DHA/NPHIES).<br>
+                                    <strong>3. Coverage:</strong> Checks benefit limits & authorization caps.
+                                </div>
                             </div>
                             <div
-                                style="margin-top: 15px; font-size: 0.7rem; color: var(--brand-blue); background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                style="font-size: 0.7rem; color: var(--brand-blue); background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
                                 <strong>Solves:</strong> Regional Complexity
                             </div>
                         </div>
 
-                        <div
-                            style="position: absolute; top: 50%; right: -25px; transform: translateY(-50%); color: var(--brand-light-blue); font-size: 1.5rem; z-index: 10;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 5v14"></path>
-                                <path d="M19 12l-7 7-7-7"></path>
-                            </svg>
-                        </div>
+                        <div class="cycle-arrow">→</div>
 
                         <div class="cycle-card"
-                            style="border-top: 4px solid var(--accent-purple); height: 100%; min-height: 220px; order: 4;">
-                            <div class="cycle-step">03. TRANSACT</div>
-                            <div class="cycle-title">Auto-Adjudication Ready</div>
-                            <div class="cycle-desc">Delivers a "Perfect Claim" to the Payer. So clean it requires zero
-                                human review on their side.</div>
+                            style="border-top: 4px solid var(--accent-purple); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div class="cycle-step">03. TRANSACT</div>
+                                <div class="cycle-title">Auto-Adjudication Ready</div>
+                                <div class="cycle-desc">Delivers a Perfect Claim to the Payer. So clean it
+                                    requires zero human review on their side, ensuring instant approval.</div>
+                            </div>
                             <div
-                                style="margin-top: 15px; font-size: 0.7rem; color: var(--accent-purple); background: rgba(139,92,246,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                style="font-size: 0.7rem; color: var(--accent-purple); background: rgba(139,92,246,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
                                 <strong>Unlock:</strong> Payer Infrastructure
                             </div>
                         </div>
 
-                        <div
-                            style="position: absolute; bottom: 22%; left: 50%; transform: translate(-50%, 50%); color: var(--brand-light-blue); font-size: 1.5rem; z-index: 10;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M19 12H5"></path>
-                                <path d="M12 19l-7-7 7-7"></path>
-                            </svg>
-                        </div>
+                        <div class="cycle-arrow">→</div>
 
                         <div class="cycle-card"
-                            style="border-top: 4px solid var(--accent-amber); height: 100%; min-height: 220px; order: 3;">
-                            <div class="cycle-step">04. LEARN & IMPROVE</div>
-                            <div class="cycle-title">The Write-Back</div>
-                            <div class="cycle-desc">If a denial occurs, the <strong>Root Cause</strong> is extracted
-                                and instantly updates the validation rules in Step 2.</div>
+                            style="border-top: 4px solid var(--accent-amber); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div class="cycle-step">04. LEARN</div>
+                                <div class="cycle-title">The Write-Back</div>
+                                <div class="cycle-desc">If a denial occurs (e.g. for Medical Necessity), the
+                                    <strong>Root Cause</strong> is extracted and updates the rules in Step 2
+                                    instantly.
+                                </div>
+                            </div>
                             <div
-                                style="margin-top: 15px; font-size: 0.7rem; color: var(--accent-amber); background: rgba(245,158,11,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                style="font-size: 0.7rem; color: var(--accent-amber); background: rgba(245,158,11,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
                                 <strong>Moat:</strong> Network Effects
                             </div>
-                        </div>
-
-                        <div
-                            style="position: absolute; top: 50%; left: -25px; transform: translateY(-50%); color: var(--accent-amber); font-size: 1.5rem; z-index: 10; opacity: 0.6;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19V5"></path>
-                                <path d="M5 12l7-7 7 7"></path>
-                            </svg>
                         </div>
 
                     </div>
 
                     <div class="animate-in delay-4"
-                        style="margin-top: 20px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05)); border: 1px solid var(--brand-light-blue); color: var(--text-dark); padding: 12px 25px; border-radius: 12px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 10px;">
-                        <span style="font-size: 1.2rem;">🧠</span>
-                        <span><strong>Network Intelligence:</strong> A denial pattern detected in one facility updates
-                            the logic for the entire network.</span>
+                        style="margin-top: 35px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                        <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0);">
+                        </div>
+
+                        <div
+                            style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05)); border: 1px solid var(--brand-light-blue); color: var(--text-dark); padding: 10px 25px; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display:flex; align-items:center; gap:10px;">
+                            <span style="font-size: 1.2rem;">🔄</span>
+                            <span><strong>Network Intelligence:</strong> A denial pattern detected in one facility
+                                updates the logic for the entire network.</span>
+                        </div>
+
+                        <div style="flex: 1; height: 1px; background: linear-gradient(90deg, #e2e8f0, transparent);">
+                        </div>
                     </div>
                 </div>
             </div>
