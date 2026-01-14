@@ -1076,11 +1076,14 @@
             border: 1px solid #e2e8f0;
             border-radius: 16px;
             padding: 20px;
-            width: 260px;
             text-align: left;
             position: relative;
             z-index: 2;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            /* Ensure cards fill grid cells */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .cycle-step {
@@ -1111,6 +1114,60 @@
             color: var(--brand-light-blue);
             font-size: 1.5rem;
             opacity: 0.5;
+        }
+
+        .cycle-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 50px;
+            max-width: 900px;
+            margin: 30px auto;
+            position: relative;
+            align-items: stretch;
+        }
+
+        .cycle-wheel {
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.15));
+        }
+
+        .cycle-wheel svg {
+            display: block;
+        }
+
+        /* Subtle pulsing animation for center circle */
+        @keyframes cycle-pulse {
+
+            0%,
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        .cycle-wheel circle[fill="white"] {
+            animation: cycle-pulse 3s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        /* Ensure cards have equal heights for proper centering */
+        .cycle-grid-container .cycle-card {
+            height: 100% !important;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ensure wheel is perfectly centered */
+        .cycle-wheel {
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         /* The Feedback Line */
@@ -2263,13 +2320,28 @@
                 margin: 20px 0 !important;
             }
 
-            .slide[data-slide="5"] .cycle-grid-container [style*="position: absolute"] {
-                display: none !important;
-            }
-
             .slide[data-slide="5"] .cycle-card {
                 order: initial !important;
                 min-height: 180px !important;
+            }
+
+            /* Cycle wheel responsive for tablet */
+            .slide[data-slide="5"] .cycle-wheel {
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .slide[data-slide="5"] .cycle-wheel svg {
+                width: 80px;
+                height: 80px;
+            }
+
+            .slide[data-slide="5"] .cycle-wheel circle[fill="white"] {
+                r: 14;
+            }
+
+            .slide[data-slide="5"] .cycle-wheel text {
+                font-size: 16px;
             }
 
             /* Slide 3 - Agentic AI two column */
@@ -2821,13 +2893,34 @@
                 margin: 15px 0 !important;
             }
 
-            .slide[data-slide="5"] .cycle-grid-container [style*="position: absolute"] {
-                display: none !important;
-            }
-
             .slide[data-slide="5"] .cycle-card {
                 order: initial !important;
                 min-height: 150px !important;
+            }
+
+            /* Cycle wheel responsive for mobile */
+            .slide[data-slide="5"] .cycle-wheel {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .slide[data-slide="5"] .cycle-wheel svg {
+                width: 60px;
+                height: 60px;
+            }
+
+            .slide[data-slide="5"] .cycle-wheel circle[fill="white"] {
+                r: 12;
+            }
+
+            .slide[data-slide="5"] .cycle-wheel text {
+                font-size: 14px;
+            }
+
+            /* Make arrows smaller on mobile */
+            .slide[data-slide="5"] .cycle-wheel path {
+                transform: scale(0.8);
+                transform-origin: center;
             }
 
             /* Slide 0 - Title slide */
@@ -3023,13 +3116,19 @@
                 margin: 12px 0 !important;
             }
 
-            .slide[data-slide="5"] .cycle-grid-container [style*="position: absolute"] {
+            /* Hide cycle wheel on very small screens */
+            .slide[data-slide="5"] .cycle-wheel {
                 display: none !important;
             }
 
             .slide[data-slide="5"] .cycle-card {
                 order: initial !important;
                 min-height: 140px !important;
+            }
+
+            /* Hide cycle wheel on very small screens */
+            .slide[data-slide="5"] .cycle-wheel {
+                display: none !important;
             }
 
             /* Slide 14 - SAM Logic Box separators hidden */
@@ -3610,7 +3709,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>Partner with <strong>Okadoc</strong> for Distribution</li>
+                                <li>Partner with <strong>HMS Leaders</strong> for Distribution</li>
                                 <li><strong>Goal:</strong> Secure cash flow for clinics & acquire training data for
                                     Forte IQ.</li>
                             </ul>
@@ -3812,92 +3911,95 @@
                     </h1>
                     <p class="slide-subtitle animate-in delay-2">Self-Correcting Revenue Cycle Ecosystem</p>
 
-                    <div class="cycle-container animate-in delay-3" style="margin-top: 40px; position: relative;">
+                    <div class="cycle-grid-container animate-in delay-3"
+                        style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 50px; max-width: 900px; margin: 30px auto; position: relative; align-items: stretch;">
 
-                        <div class="cycle-card"
-                            style="border-top: 4px solid var(--accent-green); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
-                            <div>
-                                <div class="cycle-step">01. INGEST & STRUCTURE</div>
-                                <div class="cycle-title">Unstructured to Golden Record</div>
-                                <div class="cycle-desc">Ingests messy PDFs, handwritten notes & EMR data. Normalizes
-                                    it into a standard FHIR object for processing.</div>
-                            </div>
+                        <!-- Step 1: Top Left -->
+                        <div class="cycle-card" style="border-top: 4px solid var(--accent-green); order: 1;">
+                            <div class="cycle-step">01. INGEST & STRUCTURE</div>
+                            <div class="cycle-title">Unstructured to Golden Record</div>
+                            <div class="cycle-desc">Ingests messy PDFs, handwritten notes & EMR data. Normalizes it into
+                                a standard FHIR object.</div>
                             <div
-                                style="font-size: 0.7rem; color: var(--accent-green); background: rgba(16,185,129,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
+                                style="margin-top: 15px; font-size: 0.7rem; color: var(--accent-green); background: rgba(16,185,129,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
                                 <strong>Solves:</strong> Data Fragmentation
                             </div>
                         </div>
 
-                        <div class="cycle-arrow">→</div>
-
-                        <div class="cycle-card"
-                            style="border-top: 4px solid var(--brand-blue); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
-                            <div>
-                                <div class="cycle-step">02. COMPLY & VALIDATE</div>
-                                <div class="cycle-title">Sovereign Rules Engine</div>
-                                <div class="cycle-desc" style="font-size: 0.75rem; line-height: 1.4;">
-                                    <strong>1. Coding:</strong> Maps clinical intent to regional standards
-                                    (ICD-10-AM/ACHI/CPT).<br>
-                                    <strong>2. Rules:</strong> Validates against payer policies (DHA/NPHIES).<br>
-                                    <strong>3. Coverage:</strong> Checks benefit limits & authorization caps.
-                                </div>
+                        <!-- Step 2: Top Right -->
+                        <div class="cycle-card" style="border-top: 4px solid var(--brand-blue); order: 2;">
+                            <div class="cycle-step">02. COMPLY & VALIDATE</div>
+                            <div class="cycle-title">Sovereign Rules Engine</div>
+                            <div class="cycle-desc">
+                                1. <strong>Coding:</strong> Maps to ICD-10-AM/ACHI/CPT.<br>
+                                2. <strong>Rules:</strong> Validates against 10k+ Payer Policies.<br>
+                                3. <strong>Coverage:</strong> Checks benefit limits & authorization caps.
                             </div>
                             <div
-                                style="font-size: 0.7rem; color: var(--brand-blue); background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
+                                style="margin-top: 15px; font-size: 0.7rem; color: var(--brand-blue); background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
                                 <strong>Solves:</strong> Regional Complexity
                             </div>
                         </div>
 
-                        <div class="cycle-arrow">→</div>
-
-                        <div class="cycle-card"
-                            style="border-top: 4px solid var(--accent-purple); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
-                            <div>
-                                <div class="cycle-step">03. TRANSACT</div>
-                                <div class="cycle-title">Auto-Adjudication Ready</div>
-                                <div class="cycle-desc">Delivers a Perfect Claim to the Payer. So clean it
-                                    requires zero human review on their side, ensuring instant approval.</div>
-                            </div>
+                        <!-- Step 3: Bottom Right -->
+                        <div class="cycle-card" style="border-top: 4px solid var(--accent-purple); order: 4;">
+                            <div class="cycle-step">03. TRANSACT</div>
+                            <div class="cycle-title">Auto-Adjudication Ready</div>
+                            <div class="cycle-desc">Delivers a Perfect Claim to the Payer. So clean it requires zero
+                                human review on their side, ensuring instant approval.</div>
                             <div
-                                style="font-size: 0.7rem; color: var(--accent-purple); background: rgba(139,92,246,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
+                                style="margin-top: 15px; font-size: 0.7rem; color: var(--accent-purple); background: rgba(139,92,246,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
                                 <strong>Unlock:</strong> Payer Infrastructure
                             </div>
                         </div>
 
-                        <div class="cycle-arrow">→</div>
-
-                        <div class="cycle-card"
-                            style="border-top: 4px solid var(--accent-amber); height: 210px; display: flex; flex-direction: column; justify-content: space-between;">
-                            <div>
-                                <div class="cycle-step">04. LEARN</div>
-                                <div class="cycle-title">The Write-Back</div>
-                                <div class="cycle-desc">If a denial occurs (e.g. for Medical Necessity), the
-                                    <strong>Root Cause</strong> is extracted and updates the rules in Step 2
-                                    instantly.
-                                </div>
-                            </div>
+                        <!-- Step 4: Bottom Left -->
+                        <div class="cycle-card" style="border-top: 4px solid var(--accent-amber); order: 3;">
+                            <div class="cycle-step">04. LEARN & IMPROVE</div>
+                            <div class="cycle-title">The Write-Back</div>
+                            <div class="cycle-desc">If a denial occurs (e.g. for Medical Necessity), the <strong>Root Cause</strong> is extracted
+                                and instantly updates the validation rules in Step 2.</div>
                             <div
-                                style="font-size: 0.7rem; color: var(--accent-amber); background: rgba(245,158,11,0.1); padding: 4px 8px; border-radius: 4px; align-self: flex-start;">
+                                style="margin-top: 15px; font-size: 0.7rem; color: var(--accent-amber); background: rgba(245,158,11,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block;">
                                 <strong>Moat:</strong> Network Effects
                             </div>
+                        </div>
+
+                        <!-- Central Cycle Wheel -->
+                        <div class="cycle-wheel"
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; z-index: 10; pointer-events: none;">
+                            <svg width="100" height="100" viewBox="0 0 100 100" style="display: block;">
+                                <!-- Circular path showing flow -->
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="var(--brand-light-blue)"
+                                    stroke-width="2.5" opacity="0.4" />
+
+                                <!-- Top Arrow: Step 1 → Step 2 (Right direction) -->
+                                <path d="M50 10 L55 20 L50 15 L45 20 Z" fill="var(--brand-blue)" opacity="0.8" />
+
+                                <!-- Right Arrow: Step 2 → Step 3 (Down direction) -->
+                                <path d="M90 50 L80 45 L85 50 L80 55 Z" fill="var(--brand-blue)" opacity="0.8" />
+
+                                <!-- Bottom Arrow: Step 3 → Step 4 (Left direction) -->
+                                <path d="M50 90 L45 80 L50 85 L55 80 Z" fill="var(--brand-blue)" opacity="0.8" />
+
+                                <!-- Left Arrow: Step 4 → Step 1 (Up direction) -->
+                                <path d="M10 50 L20 45 L15 50 L20 55 Z" fill="var(--accent-amber)" opacity="0.8" />
+
+                                <!-- Center symbol (infinity/loop) -->
+                                <circle cx="50" cy="50" r="18" fill="white" stroke="var(--brand-blue)"
+                                    stroke-width="2" />
+                                <text x="50" y="58" text-anchor="middle" font-size="20" font-weight="700"
+                                    fill="var(--brand-blue)">↻</text>
+                            </svg>
                         </div>
 
                     </div>
 
                     <div class="animate-in delay-4"
-                        style="margin-top: 35px; display: flex; align-items: center; justify-content: center; gap: 15px;">
-                        <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0);">
-                        </div>
-
-                        <div
-                            style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05)); border: 1px solid var(--brand-light-blue); color: var(--text-dark); padding: 10px 25px; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display:flex; align-items:center; gap:10px;">
-                            <span style="font-size: 1.2rem;">🔄</span>
-                            <span><strong>Network Intelligence:</strong> A denial pattern detected in one facility
-                                updates the logic for the entire network.</span>
-                        </div>
-
-                        <div style="flex: 1; height: 1px; background: linear-gradient(90deg, #e2e8f0, transparent);">
-                        </div>
+                        style="margin-top: 20px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05)); border: 1px solid var(--brand-light-blue); color: var(--text-dark); padding: 12px 25px; border-radius: 12px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.2rem;">🧠</span>
+                        <span><strong>Network Intelligence:</strong> A denial pattern detected in one facility updates
+                            the logic for the entire network.</span>
                     </div>
                 </div>
             </div>
@@ -3971,7 +4073,7 @@
                                 </div>
                                 <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
                                     Outputs constrained strictly to <strong>Verified Ground Truth</strong> (Policy
-                                    Docs & Regulations). Zero "creative" writing.
+                                    Docs & Regulations). Zero creative writing.
                                 </p>
                             </div>
                             <div
